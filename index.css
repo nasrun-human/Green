@@ -1,0 +1,374 @@
+/* === Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === Section Header & Divider === */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #78909c;
+}
+
+/* === Hero Section (Auto Play) === */
+.hero-section {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- Business Introduction === */
+.business-intro {
+    background-color: #37474f;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.business-intro .section-header h2::after {
+    background-color: #eceff1;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.text-content {
+    flex: 1;
+    color: #eceff1;
+}
+
+.text-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-indent: 50px;
+    text-align: justify;
+    margin: 0;
+}
+
+.video-content {
+    flex: 1;
+    position: relative;
+}
+
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.video-thumbnail video {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+/* === Custom Progress Bar Styles === */
+.custom-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #00bcd4;
+    transition: width 0.1s linear;
+}
+
+.time-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: monospace;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* --- Core Product --- */
+.core-product {
+    padding: 60px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* สไตล์สำหรับรูป Diagram ใน Core Product */
+.core-diagram-container {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.core-diagram-img {
+    max-width: 80%;
+    height: auto;
+    display: inline-block;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.product-card {
+    text-align: left;
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: default;
+    transition: transform 0.3s ease;
+}
+
+.product-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-card ul li {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 5px;
+    padding-left: 12px;
+    position: relative;
+}
+
+.product-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #78909c;
+}
+
+/* --- CUSTOMER SERVICE --- */
+.customer-service {
+    background-color: #37474f;
+    padding: 80px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.customer-service .section-header h2 {
+    border-bottom: none;
+}
+
+.customer-service .section-header h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.service-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.service-image {
+    flex: 1.2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.service-text-list {
+    flex: 1;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.service-text-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-text-list li {
+    font-size: 1.15rem;
+    color: #eceff1;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .service-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-image {
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .service-text-list {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .core-diagram-img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Customer Case --- */
+.customer-case {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.case-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 10px;
+}
+
+.case-item {
+    height: 150px;
+    flex: 0 0 calc(20% - 15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.case-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.case-item:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+    .case-item {
+        flex: 0 0 calc(33.33% - 15px);
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .case-item {
+        flex: 0 0 calc(50% - 10px);
+        height: 100px;
+    }
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Hospitality Simphony - Green Cloud Software</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* === Global Styles === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === Navbar Logic === */
+        #navbar-placeholder {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar.sticky {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        /* === Hero Banner === */
+        .hero-banner {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1556742044-3c52d6e88c02?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* === Content Section General === */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .text-area {
+            flex: 1;
+        }
+
+        .text-area h2 {
+            font-size: 2.2rem;
+            color: #456b82;
+            margin-bottom: 25px;
+        }
+
+        .text-area p {
+            font-size: 0.95rem;
+            color: #666;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .image-area {
+            flex: 1;
+        }
+
+        .image-area img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        /* === Solution Banner === */
+        .solution-banner-full {
+            background-color: #456b82;
+            background-image: linear-gradient(rgba(69, 107, 130, 0.7), rgba(69, 107, 130, 0.7)),
+                url('https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=1920');
+            background-size: cover;
+            background-position: right center;
+            color: white;
+            width: 100%;
+            padding: 100px 0;
+        }
+
+        .solution-banner-full span {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .solution-banner-full h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
+
+        /* === Industry Solutions (ปรับให้เท่ากัน) === */
+        .industry-section {
+            padding: 100px 0;
+        }
+
+        .industry-row {
+            display: flex;
+            align-items: stretch;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .industry-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .industry-text {
+            flex: 1;
+            /* กำหนดให้พื้นที่ข้อความเท่ากับพื้นที่รูปภาพ */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .industry-text h3 {
+            font-size: 1.8rem;
+            color: #456b82;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .industry-text p {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .industry-text .product-tag {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .learn-more {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2px;
+            width: fit-content;
+        }
+
+        .industry-image-box {
+            flex: 1;
+            /* กำหนดให้พื้นที่รูปภาพเท่ากับพื้นที่ข้อความ */
+            background-color: #3b7484;
+            background-image: url('images/pattern.png');
+            background-repeat: repeat;
+            background-blend-mode: multiply;
+            opacity: 1;
+            padding: 40px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            /* กำหนดความสูงขั้นต่ำให้เท่ากันทุกกล่อง */
+        }
+
+        .industry-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 992px) {
+
+            .content-wrapper,
+            .industry-row {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .industry-image-box {
+                min-height: auto;
+                padding: 20px;
+            }
+
+            .learn-more {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Oracle Hospitality Simphony</h1>
+            <p>PRODUCT</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="text-area">
+                    <h2>Oracle Simphony/SIMPHONY/MICRO POS Systems</h2>
+                    <p>Oracle Simphony/SIMPHONY/MICROS provides stable, reliable, and secure point of sale (POS) systems
+                        for restaurants, hotels, resorts, casinos, stadiums, arenas, cruise ships, transportation hubs,
+                        and retail stores around the globe.</p>
+                    <p>As a global leader in POS hardware, software, open integrations, and innovation, Oracle
+                        Simphony/SIMPHONY/MICROS also maintains a 40-year tradition of excellence in consultation and
+                        support services.</p>
+                </div>
+                <div class="image-area">
+                    <img src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800"
+                        alt="Simphony Intro">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="content-wrapper" style="flex-direction: row-reverse;">
+                <div class="text-area">
+                    <h2>POS Systems Hardware</h2>
+                    <p>By combining Simphony/SIMPHONY/MICROS' industry-specific applications with Oracle's complete
+                        technology stack, our customers take advantage of accelerated innovation.</p>
+                </div>
+                <div class="image-area">
+                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c02?q=80&w=800" alt="POS Hardware">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section">
+        <div class="solution-banner-full">
+            <div class="container">
+                <span>SOLUTION</span>
+                <h2>POS Systems Built For Your Industry</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="industry-section">
+        <div class="container">
+
+            <div class="industry-row">
+                <div class="industry-text">
+                    <h3>Hotels, Resorts, Cruise Ships, and Casinos</h3>
+                    <p>Personalize exceptional guest experience. Manage loyalty programs with powerful analytics. Let
+                        Oracle SIMPHONY/MICROS help you set the bar in premium hospitality.</p>
+                    <span class="product-tag">SIMPHONY/MICROS POS</span>
+                    <a href="#" class="learn-more">All More</a>
+                </div>
+                <div class="industry-image-box">
+                    <img src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=600"
+                        alt="Hotel Solution">
+                </div>
+            </div>
+
+            <div class="industry-row reverse">
+                <div class="industry-text">
+                    <h3>Restaurants, Bars, Clubs and Cafés</h3>
+                    <p>Deliver flawless service to your customers at the table, online, and at their front door. Our
+                        all-in-one restaurant management systems help you run your front-of-house.</p>
+                    <span class="product-tag">SIMPHONY/MICROS POS for restaurants</span>
+                    <a href="#" class="learn-more">All More</a>
+                </div>
+                <div class="industry-image-box">
+                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c02?q=80&w=600"
+                        alt="Restaurant Solution">
+                </div>
+            </div>
+
+            <div class="industry-row">
+                <div class="industry-text">
+                    <h3>Retail Stores of All Shapes and Sizes</h3>
+                    <p>Process orders, streamline daily operations, and boost sales with easy-to-use hardware. Oracle
+                        SIMPHONY/MICROS retail cloud solutions empower retailers to anticipate demand.</p>
+                    <span class="product-tag">SIMPHONY/MICROS POS for retail</span>
+                    <a href="#" class="learn-more">All More</a>
+                </div>
+                <div class="industry-image-box">
+                    <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=600"
+                        alt="Retail Solution">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+ <script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+            const navbar = document.querySelector('.navbar');
+            let currentPage = window.location.pathname.split("/").pop();
+            if (currentPage === "") currentPage = "index.html";
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) link.classList.add('active');
+            });
+            window.addEventListener('scroll', () => {
+                if (navbar) {
+                    if (window.scrollY > 50) navbar.classList.add('sticky');
+                    else navbar.classList.remove('sticky');
+                }
+            });
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+</script>
+</body>
+
+</html>

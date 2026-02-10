@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Hospitality Sales & Catering - Green Cloud Software</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* === Global & Hero Styles === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #navbar-placeholder {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar.sticky {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        .hero-banner {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* === Intro Section === */
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .text-area {
+            flex: 1.2;
+        }
+
+        .text-area h2 {
+            font-size: 2.2rem;
+            color: #456b82;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .text-area p {
+            font-size: 0.95rem;
+            color: #666;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .pdf-list {
+            list-style: none;
+        }
+
+        .pdf-item {
+            margin-bottom: 15px;
+        }
+
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .pdf-link i {
+            color: #e74c3c;
+            font-size: 1.4rem;
+            margin-right: 12px;
+        }
+
+        .image-area {
+            flex: 1;
+        }
+
+        .image-area img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        /* === Product Features (5 Circles) === */
+        .features-section {
+            padding: 100px 0;
+            background-color: #3b7484;
+            color: white;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-circle {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-circle i {
+            font-size: 2.5rem;
+            color: #3b7484;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            min-height: 50px;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* === NEW: Increase of efficiency Section === */
+        .efficiency-section {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .efficiency-section h2 {
+            font-size: 2.2rem;
+            color: #456b82;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        .efficiency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .efficiency-card {
+            background-color: #3b7484;
+            /* สีเขียวอมฟ้าตามภาพ */
+            background-image: url('images/pattern.png');
+            /* Pattern ลายเส้น */
+            background-blend-mode: multiply;
+            padding: 40px 30px;
+            border-radius: 15px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .efficiency-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .efficiency-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* === NEW: Hosting Services Banner === */
+        .hosting-banner {
+            background-color: #456b82;
+            color: white;
+            width: 100%;
+            padding: 100px 0;
+            background-image: linear-gradient(rgba(69, 107, 130, 0.7), rgba(69, 107, 130, 0.7)),
+                url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hosting-banner span {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .hosting-banner h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+
+            .content-wrapper,
+            .features-grid,
+            .efficiency-grid {
+                flex-direction: column !important;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Oracle Hospitality Sales & Catering</h1>
+            <p>PRODUCT</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="text-area">
+                    <h2>Efficiently Plan and Execute Events</h2>
+                    <p>Oracle Hospitality OPERA Sales and Catering is a full-featured customer- and event-management
+                        application that seamlessly integrates with Oracle Hospitality OPERA Property to maximize group
+                        sales and streamline execution of meetings and events.</p>
+                    <ul class="pdf-list">
+                        <li class="pdf-item"><a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> Catering Cloud
+                                Service Lite [PDF]</a></li>
+                        <li class="pdf-item"><a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> Catering Cloud
+                                Service Standard [PDF]</a></li>
+                        <li class="pdf-item"><a href="#" class="pdf-link"><i class="fas fa-file-pdf"></i> Catering Cloud
+                                Service Premium [PDF]</a></li>
+                    </ul>
+                </div>
+                <div class="image-area">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
+                        alt="Sales and Catering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2>Product Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-circle"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Event Management</h3>
+                    <p>Streamline the planning and execution of all types of events and meetings.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><i class="fas fa-users-cog"></i></div>
+                    <h3>Group Sales</h3>
+                    <p>Maximize group revenue through integrated sales tools.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Revenue Optimization</h3>
+                    <p>Powerful analytics to help you make data-driven decisions.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Seamless Integration</h3>
+                    <p>Works perfectly with OPERA Property Management.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud-Based</h3>
+                    <p>Access your data securely from anywhere, at any time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="efficiency-section">
+        <div class="container">
+            <h2>Increase of efficiency</h2>
+            <div class="efficiency-grid">
+                <div class="efficiency-card">
+                    <div class="efficiency-icon"><i class="fas fa-bullseye"></i></div>
+                    <p>Maximize efficiency with full integration of Oracle hospitality opera property with Oracle
+                        hospitality.</p>
+                </div>
+                <div class="efficiency-card">
+                    <div class="efficiency-icon"><i class="fas fa-box-open"></i></div>
+                    <p>Support any active sales strategy from a single project to a packaged product.</p>
+                </div>
+                <div class="efficiency-card">
+                    <div class="efficiency-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <p>Gain customer and operational perspectives with dedicated reporting and analytics solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="hosting-banner">
+    <div class="container">
+        <span>BUSINESS</span>
+        <h2>Hosting Services</h2>
+    </div>
+</section>
+
+<section class="hosting-details-section" style="padding: 80px 0; background-color: #f4f7f8;">
+    <div class="container">
+        <h2 style="text-align: center; color: #456b82; font-size: 2.2rem; margin-bottom: 50px; font-weight: 500;">
+            Help your business transformation with Hosting services
+        </h2>
+
+        <div class="hosting-details-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+
+            <div class="hosting-card"
+                style="background: white; padding: 40px 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #3b7484;">
+                <div class="card-icon" style="margin-bottom: 25px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2620/2620600.png" alt="Versions"
+                        style="width: 80px; height: auto;">
+                </div>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">
+                    Three different versions to meet your business needs
+                </p>
+            </div>
+
+            <div class="hosting-card"
+                style="background: white; padding: 40px 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #3b7484;">
+                <div class="card-icon" style="margin-bottom: 25px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4205/4205106.png" alt="Deployment"
+                        style="width: 80px; height: auto;">
+                </div>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">
+                    Choose from own service or cloud service deployment options
+                </p>
+            </div>
+
+            <div class="hosting-card"
+                style="background: white; padding: 40px 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #3b7484;">
+                <div class="card-icon" style="margin-bottom: 25px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1350/1350106.png" alt="Requirements"
+                        style="width: 80px; height: auto;">
+                </div>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">
+                    Meet different language, currency and legal requirements around the world
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    @media (max-width: 768px) {
+        .hosting-details-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
+
+<div id="footer-placeholder"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                const navbar = document.querySelector('.navbar');
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentPage) link.classList.add('active');
+                });
+                window.addEventListener('scroll', () => {
+                    if (navbar) {
+                        if (window.scrollY > 50) navbar.classList.add('sticky');
+                        else navbar.classList.remove('sticky');
+                    }
+                });
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+    </script>
+</body>
+
+</html>

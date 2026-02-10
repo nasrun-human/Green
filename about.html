@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Green Cloud Software</title>
+    <link rel="icon" type="image/png" href="image/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* =========================================
+           CSS Global & Resets
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Active Menu Style */
+        .navbar .nav-links a.active {
+            color: #00bcd4 !important;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           Banner Section
+           ========================================= */
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+                url('image/16.png');
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        /* =========================================
+           Introduction Section (UPDATED)
+           ========================================= */
+        .intro-section {
+            background-color: #37474f;
+            /* ปรับสีพื้นหลังเป็นสีเทาเข้มตามภาพ */
+            color: #fff;
+            /* ปรับสีตัวอักษรเป็นสีขาว */
+            padding: 80px 0;
+            text-align: center;
+            /* จัดข้อความกึ่งกลาง */
+        }
+
+        .intro-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            /* จำกัดความกว้างเพื่อให้ข้อความดูสวยงามไม่ยาวเกินไป */
+            line-height: 1.8;
+            font-weight: 300;
+            font-size: 1rem;
+            margin: 0 auto;
+        }
+
+        .intro-text p {
+            margin-bottom: 25px;
+        }
+
+        /* เน้นคำว่า Green Cloud Software ให้หนาขึ้นเล็กน้อย */
+        .intro-text strong {
+            font-weight: 600;
+        }
+
+        /* =========================================
+           Common Section Styles
+           ========================================= */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+            color: #333;
+            /* Default color for light background */
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+        }
+
+        /* =========================================
+           Customer Case
+           ========================================= */
+        .customer-case {
+            padding: 60px 0;
+            background-color: #fff;
+            /* พื้นหลังสีขาวสำหรับส่วน Customer Case */
+        }
+
+        .case-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 10px;
+        }
+
+        .case-item {
+            height: 150px;
+            flex: 0 0 calc(20% - 15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .case-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .case-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           Responsive
+           ========================================= */
+        @media (max-width: 992px) {
+            .case-item {
+                flex: 0 0 calc(33.33% - 15px);
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .case-item {
+                flex: 0 0 calc(50% - 15px);
+                height: 100px;
+            }
+
+            .intro-text {
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="hero-banner">
+        <div class="container">
+        </div>
+    </section>
+
+    <section class="intro-section">
+        <div class="container intro-content">
+            <div class="intro-text">
+                <p><strong>Green Cloud Software (Thailand) Co., Ltd.</strong> is a leading provider of Oracle-based IT
+                    solutions for the hospitality industry, specifically catering to hotels and F&amp;B businesses. As a
+                    certified Oracle partner, we can support customers across the Asia-Pacific region.</p>
+
+                <p>Our team includes 6 Oracle-certified experts with extensive experience in the field. We focus on
+                    driving digital transformation and improving operational efficiency, helping our clients succeed in
+                    a competitive market.</p>
+
+                <p>With a commitment to innovation and excellence, Green Cloud is your trusted partner for achieving
+                    success through technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="customer-case">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Case</h2>
+            </div>
+
+            <div class="case-grid">
+                <div class="case-item"><img src="image/6.png" alt="Berkeley"></div>
+                <div class="case-item"><img src="image/7.png" alt="Prince Palace"></div>
+                <div class="case-item"><img src="image/8.png" alt="Hilton"></div>
+                <div class="case-item"><img src="image/9.png" alt="DoubleTree"></div>
+                <div class="case-item"><img src="image/10.png" alt="Landmark"></div>
+
+                <div class="case-item"><img src="image/11.png" alt="SAii"></div>
+                <div class="case-item"><img src="image/12.png" alt="Holiday Inn"></div>
+                <div class="case-item"><img src="image/13.png" alt="Woodlands"></div>
+                <div class="case-item"><img src="image/14.png" alt="Andaman Embrace"></div>
+                <div class="case-item"><img src="image/15.png" alt="S&amp;P"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.closest('.dropdown-item')) {
+                        link.closest('.dropdown-item').querySelector('a').classList.remove('active');
+                    }
+                });
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                        const parentDropdown = link.closest('.dropdown-item');
+                        if (parentDropdown) {
+                            parentDropdown.querySelector('a').classList.add('active');
+                        }
+                    }
+                });
+
+                const navbar = document.querySelector('.navbar');
+                const heroSection = document.querySelector('.hero-banner');
+
+                if (heroSection) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('sticky');
+                        } else {
+                            navbar.classList.remove('sticky');
+                        }
+                    });
+                }
+
+                const hamburger = document.querySelector('.hamburger');
+                const menuLinks = document.querySelector('.nav-links');
+                if (hamburger) {
+                    hamburger.addEventListener('click', () => {
+                        menuLinks.classList.toggle('active');
+                    });
+                }
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

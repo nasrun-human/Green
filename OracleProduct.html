@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Oracle Hospitality Solutions</title>
+    <link rel="icon" type="image/png" href="image/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* =========================================
+           1. CSS Global & Resets
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* เพิ่ม Scroll Margin ให้ Section เพื่อกันเมนูบัง */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+
+        /* =========================================
+           2. Navbar Overrides
+           ========================================= */
+        .navbar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all 0.4s ease;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .navbar .logo,
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar .nav-links>li>a.active {
+            color: #00bcd4 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-menu {
+            background-color: #ffffff !important;
+        }
+
+        .dropdown-menu li a {
+            color: #333333 !important;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #00bcd4 !important;
+            background-color: #f9f9f9;
+        }
+
+        .navbar.sticky {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .logo,
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        .navbar.sticky .nav-links>li>a.active {
+            color: #00bcd4 !important;
+        }
+
+        .navbar.sticky .logo img {
+            filter: none;
+        }
+
+        .navbar.sticky .hamburger span {
+            background-color: #333333 !important;
+        }
+
+        /* =========================================
+           3. Banner Styles
+           ========================================= */
+        .section-banner {
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            margin-bottom: 0;
+            /* scroll-margin-top: 80px; เอาออกและใช้ section[id] แทน */
+        }
+
+        .hero-top {
+            margin-top: 0;
+        }
+
+        .section-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 20, 40, 0.3);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .banner-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+
+        .banner-oracle {
+            background-image: url('image/18.png');
+        }
+
+        .banner-value {
+            background-image: url('image/20.png');
+        }
+
+        /* =========================================
+           4. Oracle Product Grid
+           ========================================= */
+        .product-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .product-grid-oracle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .product-card-strip {
+            background: #fff;
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .product-card-strip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card-strip .card-body {
+            padding: 40px 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card-strip h3 {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .card-btn-strip {
+            background-color: #3b506c;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            text-transform: capitalize;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+        }
+
+        .product-card-strip:hover .card-btn-strip {
+            background-color: #00bcd4;
+        }
+
+        /* =========================================
+           5. Opera Property & Features
+           ========================================= */
+        .banner-opera-property {
+            background-image: none !important;
+            background-color: #37474f;
+            height: auto;
+            padding: 100px 20px;
+            min-height: 350px;
+        }
+
+        .banner-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #e0e0e0;
+            margin-top: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .future-proof-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .fp-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .fp-header h2 {
+            font-size: 2.2rem;
+            color: #444;
+            font-weight: 500;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .fp-header h2::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #777;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .fp-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .fp-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid #bbb;
+            border-radius: 50px;
+            padding: 25px 30px 25px 60px;
+            width: 350px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .fp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: #5bc538;
+        }
+
+        .fp-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+            margin: 0;
+            text-align: left;
+        }
+
+        .fp-icon {
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: #5bc538;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.4rem;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+            z-index: 5;
+        }
+
+        /* =========================================
+           6. Hotel Mobile Styles
+           ========================================= */
+        .banner-hotel-mobile {
+            background-color: #37474f;
+            height: auto;
+            padding: 80px 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hm-features-section {
+            padding: 60px 0 100px 0;
+            background-color: #fff;
+        }
+
+        .hm-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hm-header h2 {
+            font-size: 2.2rem;
+            color: #37474f;
+            font-weight: 500;
+            display: inline-block;
+            border-bottom: 2px solid #777;
+            padding-bottom: 10px;
+        }
+
+        .hm-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .hm-card {
+            border: 3px solid #37474f;
+            border-radius: 25px;
+            padding: 50px 15px 30px 15px;
+            text-align: center;
+            position: relative;
+            background: #fff;
+            width: 100%;
+            max-width: 220px;
+            min-height: 280px;
+            margin-top: 40px;
+            transition: transform 0.3s;
+        }
+
+        .hm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hm-icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #37474f;
+            border-radius: 50%;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 2rem;
+            z-index: 2;
+        }
+
+        .hm-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #37474f;
+            margin-bottom: 15px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hm-card p {
+            font-size: 0.8rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .hm-card hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+        /* =========================================
+           7. POS Systems Styles
+           ========================================= */
+        .banner-simphony {
+            background-color: #37474f;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .pos-section {
+            padding: 60px 0 100px 0;
+            background-color: #fff;
+        }
+
+        .pos-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pos-header h2 {
+            font-size: 2.2rem;
+            color: #37474f;
+            font-weight: 500;
+            display: inline-block;
+            border-bottom: 2px solid #777;
+            padding-bottom: 10px;
+        }
+
+        .pos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .pos-card {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pos-img-box {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .pos-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .pos-card:hover .pos-img-box img {
+            transform: scale(1.08);
+        }
+
+        .pos-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #444;
+            line-height: 1.5;
+            max-width: 90%;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .pos-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .pos-card h4 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* =========================================
+           10. Sales & Catering Styles
+           ========================================= */
+        .banner-sales {
+            background-color: #37474f;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .sc-section {
+            padding: 60px 0 100px 0;
+            background-color: #fff;
+        }
+
+        .sc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .sc-card {
+            border: 2px solid #37474f;
+            border-radius: 30px;
+            padding: 40px 30px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .sc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sc-card h3 {
+            text-align: center;
+            color: #37474f;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sc-card hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .sc-card ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .sc-card li {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .sc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sc-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        /* =========================================
+           11. Materials Control Styles
+           ========================================= */
+        .banner-materials {
+            background-color: #37474f;
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            height: auto;
+            background-image: none;
+        }
+
+        .mc-section {
+            padding: 60px 0 100px 0;
+            background-color: #fff;
+        }
+
+        .mc-card {
+            border: 2px solid #37474f;
+            border-radius: 20px;
+            padding: 50px 40px;
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .mc-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: none;
+            gap: 10px;
+        }
+
+        .mc-card-header i {
+            font-size: 2.5rem;
+            color: #37474f;
+            margin-right: 20px;
+        }
+
+        .mc-card-header h3 {
+            border-bottom: 3px solid #34495e;
+            display: inline-block;
+            padding-bottom: 8px;
+            margin-bottom: 0;
+        }
+
+        .mc-card ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .mc-card li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .mc-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #37474f;
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            top: -3px;
+        }
+
+        @media (max-width: 768px) {
+            .mc-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* =========================================
+           8. Value Added Service
+           ========================================= */
+        .value-added-section .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .value-added-section .product-card {
+            width: 45%;
+            max-width: 480px;
+            min-width: 300px;
+            background: #fff;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            height: auto;
+        }
+
+        .value-added-section .card-body {
+            padding: 50px 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-added-section .card-body h3 {
+            font-size: 1.2rem;
+            color: #444;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .value-added-section .card-footer-btn {
+            background-color: #37474f;
+            color: #fff;
+            border-top: none;
+            padding: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-align: center;
+            display: block;
+            position: relative;
+        }
+
+        .value-added-section .card-footer-btn::after {
+            content: ' >';
+            opacity: 1;
+            transition: opacity 0.3s, transform 0.3s;
+            display: inline-block;
+            margin-left: 5px;
+            transform: translateX(0);
+        }
+
+        .value-added-section .product-card:hover .card-footer-btn {
+            background-color: #00bcd4;
+            color: #fff;
+            border-top-color: transparent;
+        }
+
+        .value-added-section .product-card:hover .card-footer-btn::after {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        /* =========================================
+           9. Responsive Adjustments
+           ========================================= */
+        @media (max-width: 992px) {
+            .product-grid-oracle {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-card-strip {
+                width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-card-strip {
+                width: 100%;
+            }
+
+            .banner-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .fp-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fp-card {
+                width: 90%;
+                margin-left: 15px;
+            }
+
+            .pos-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pos-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .value-added-section .product-card {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        #value-added {
+            margin-bottom: 200px;
+            background-color: white;
+        }
+
+        @media (max-width: 1100px) {
+            .hm-grid {
+                gap: 40px 20px;
+            }
+
+            .hm-card {
+                max-width: 45%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hm-card {
+                max-width: 90%;
+            }
+        }
+        .white-spacer {
+    height: 100px;
+    background-color: white;
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section id="oracle-product" class="section-banner banner-oracle hero-top">
+        <div class="banner-content">
+            <h2>Oracle Product</h2>
+        </div>
+    </section>
+
+    <section class="product-section container">
+        <div class="product-grid-oracle">
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality OPERA Property</h3>
+                </div>
+                <a href="#opera-property" class="card-btn-strip">Learn more &gt;</a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Hotel Mobile</h3>
+                </div>
+                <a href="#hotel-mobile" class="card-btn-strip">Learn more &gt;</a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Simphony</h3>
+                </div>
+                <a href="#simphony" class="card-btn-strip">Learn more &gt;</a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Sales &amp; Catering</h3>
+                </div>
+                <a href="#sales-catering" class="card-btn-strip">Learn more &gt;</a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Materials Control</h3>
+                </div>
+                <a href="#materials-control" class="card-btn-strip">Learn more &gt;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="opera-property" class="section-banner banner-opera-property">
+        <div class="banner-content">
+            <h2>Oracle Hospitality Opera Property</h2>
+            <p class="banner-subtitle">
+                Oracle Hospitality OPERA Property provides a full-featured, property management system that enables you
+                to deliver world-class guest service and increase operational efficiency across the hotel property.
+            </p>
+        </div>
+    </section>
+
+    <section class="future-proof-section container">
+        <div class="fp-header">
+            <h2>Future-Proof Your Business</h2>
+        </div>
+
+        <div class="fp-grid">
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fa-solid fa-check"></i></div>
+                <p>Comprehensive hotel property management with a vast number of connection options</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fa-solid fa-check"></i></div>
+                <p>Deliver great guest experiences with personalized services</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fa-solid fa-check"></i></div>
+                <p>Maximize revenues and occupancy with advanced rate management</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fa-solid fa-check"></i></div>
+                <p>Streamline operations by integrating food and beverage and distribution</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fa-solid fa-check"></i></div>
+                <p>Improve business performance based on real-time business</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hotel-mobile" class="section-banner banner-hotel-mobile">
+        <div class="banner-content">
+            <h2>Oracle Hospitality Hotel Mobile</h2>
+            <p class="banner-subtitle">
+                Oracle Hospitality Hotel Mobile is a native app that extends key Oracle Hospitality hotel functions to
+                mobile devices, empowering your staff to improve guest engagement by offering personalized services
+                virtually anywhere across your property. Please note that Oracle Hospitality Consulting services must be
+                purchased separately to set up and configure Hotel Mobile. A valid Hotel Mobile license must be obtained
+                prior to use.
+            </p>
+        </div>
+    </section>
+
+    <section class="hm-features-section container">
+        <div class="hm-header">
+            <h2>Product Features</h2>
+        </div>
+        <div class="hm-grid">
+            <div class="hm-card">
+                <div class="hm-icon-circle"><i class="fa-solid fa-chart-pie"></i></div>
+                <h3>The Dashboard</h3>
+                <hr>
+                <p>The Dashboard provides summary information of the hotel activities in real time with drill down
+                    functionality to the various departments.</p>
+            </div>
+            <div class="hm-card">
+                <div class="hm-icon-circle"><i class="fa-solid fa-user-check"></i></div>
+                <h3>Check-in and check-out</h3>
+                <hr>
+                <p>Differentiate the guest experience by effectively managing the check-in &amp; check-out process using the
+                    mobile PMS.</p>
+            </div>
+            <div class="hm-card">
+                <div class="hm-icon-circle"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h3>Mobile front desk operations</h3>
+                <hr>
+                <p>Increase your operational efficiency by untethering your front desk operation.</p>
+            </div>
+            <div class="hm-card">
+                <div class="hm-icon-circle"><i class="fa-solid fa-clipboard-list"></i></div>
+                <h3>Streamline Housekeeping</h3>
+                <hr>
+                <p>Manage room status and track housekeeping activities.</p>
+            </div>
+            <div class="hm-card">
+                <div class="hm-icon-circle"><i class="fa-regular fa-lightbulb"></i></div>
+                <h3>Increase Maintenance Efficiency</h3>
+                <hr>
+                <p>Document and track maintenance tasks in real-time and upload a photo with a work order to illustrate
+                    the task.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="simphony" class="section-banner banner-simphony">
+        <div class="banner-content">
+            <h2>Oracle Simphony/SIMPHONY/MICRO POS Systems</h2>
+            <p class="banner-subtitle">
+                Oracle Simphony/SIMPHONY/MICROS provides stable, reliable, and secure point of sale (POS) systems for
+                restaurants, hotels, resorts, casinos, stadiums, arenas, cruise ships, transportation hubs, and retail
+                stores around the globe. As a global leader in POS hardware, software, open integrations, and
+                innovation, Oracle Simphony/SIMPHONY/MICROS also maintains a 40-year tradition of excellence in
+                consultation and
+                support services for its cloud-based and on-premise POS customers across 180+ countries.
+            </p>
+        </div>
+    </section>
+
+    <section class="pos-section container">
+        <div class="pos-header">
+            <h2>POS Systems Hardware</h2>
+        </div>
+
+        <div class="pos-grid">
+            <div class="pos-card">
+                <div class="pos-img-box">
+                    <img src="image/os1.png" alt="Tablet POS for Hotels">
+                </div>
+                <h4>Hotels, Resorts, Cruise Ships, and Casinos</h4>
+            </div>
+
+            <div class="pos-card">
+                <div class="pos-img-box">
+                    <img src="image/os2.png" alt="Workstation POS for Restaurants">
+                </div>
+                <h4>Restaurants, Bars, Clubs and Cafés</h4>
+            </div>
+
+            <div class="pos-card">
+                <div class="pos-img-box">
+                    <img src="image/os3.png" alt="POS for Retail">
+                </div>
+                <h4>Retail Stores of All Shapes and Sizes</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="sales-catering" class="section-banner banner-sales">
+        <div class="banner-content">
+            <h2>Oracle Hospitality Sales &amp; Catering</h2>
+            <p class="banner-subtitle">
+                Oracle Hospitality OPERA Sales and Catering is a full-featured customer- and event- management
+                application
+                that seamlessly integrates
+                with Oracle Hospitality OPERA Property to maximize group sales and streamline execution of meetings and
+                events
+            </p>
+        </div>
+    </section>
+
+    <section class="sc-section container">
+        <div class="sc-grid">
+            <div class="sc-card">
+                <h3>Grow Group Sales Revenues</h3>
+                <hr>
+                <ul>
+                    <li>Maximize sales revenues from group sales, conferences, and banqueting</li>
+                    <li>Enable the sales force to attain targets with intuitive sales tools and efficient lead
+                        management
+                    </li>
+                    <li>Automate bookings via web channels and sell your meeting space online</li>
+                    <li>Improve profitability with smart pricing</li>
+                    <li>Gain business insights using sales and catering dashboards</li>
+                </ul>
+            </div>
+
+            <div class="sc-card">
+                <h3>Increase of efficiency</h3>
+                <hr>
+                <ul>
+                    <li>Maximize efficiency with full integration of Oracle hospitality opera property with Oracle
+                        hospitality</li>
+                    <li>Support any active sales strategy from a single project to a packaged product</li>
+                    <li>Gain customer and operational perspectives with dedicated reporting and analytics solutions</li>
+                </ul>
+            </div>
+
+            <div class="sc-card">
+                <h3>Help your business transformation with Hosting services</h3>
+                <hr>
+                <ul>
+                    <li>Three different versions to meet your business needs</li>
+                    <li>Choose from own service or cloud service deployment options</li>
+                    <li>Meet different language, currency and legal requirements around the world</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="materials-control" class="section-banner banner-materials">
+        <div class="banner-content">
+            <h2>Oracle Hospitality Materials Control</h2>
+            <p class="banner-subtitle">
+                Oracle Hospitality Materials Control is a comprehensive procurement, inventory, and cost-control system
+                that
+                provides essential data,
+                including cost of sales, effective revenue, stock on hand, order proposals, and stocking requirements in
+                real time.
+            </p>
+        </div>
+    </section>
+
+    <section class="mc-section container">
+        <div class="pos-header">
+            <h2>Solution Inventory Management</h2>
+        </div>
+
+        <div class="mc-card">
+            <div class="mc-card-header">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <h3>Key features</h3>
+            </div>
+            <ul>
+                <li>Preferred inventory management solution for hotel</li>
+                <li>Real-time data tracking for cost of sales, stock on hand, order proposals, and requirements</li>
+                <li>Comparison of actual to planned stock usage</li>
+                <li>Transmission of purchase orders from within the application via e-mail, fax, and B2B interface to
+                    suppliers to expedite ordering/receiving processes</li>
+                <li>Authorization workflow to efficiently control potential expense</li>
+                <li>Ability to compare prices and assess their impact on planned purchases</li>
+                <li>Supplier assessment with bid management</li>
+                <li>Adjustment solution to manage complex freight, duty, and custom add-on cost</li>
+                <li>Tracking of critical information for Hazard Analysis Critical Control Point customer such as
+                    temperature, expiration dates, transfer batches, and individual batch counts</li>
+                <li>Mobile solutions for orders, receipts, transfers, and inventory counts</li>
+                <li>Support for multiple tax schemas, foreign currencies, and translation of master data and the
+                    application
+                    itself</li>
+                <li>Out-of-the-box report set to analyze transactions with option to preview, print, e-mail, and export
+                    to
+                    Microsoft Excel</li>
+                <li>Provides management toward making inventory purchasing decisions that meet cost objectives</li>
+                <li>Reduces costly food expenses by tracking waste and loss</li>
+                <li>Provides cost savings with detailed inventory tracking</li>
+                <li>Shifts the focus of your staff from inventory maintenance to providing an enjoyable guest experience
+                </li>
+                <li>Allows for faster and more accurate transaction processing with mobile solutions</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="value-added" class="section-banner banner-value">
+        <div class="banner-content">
+            <h2>Value Added Service Products</h2>
+        </div>
+    </section>
+
+
+    <div class="white-spacer"></div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const parentDropdown = link.closest('.dropdown-item');
+                    if (parentDropdown) {
+                        const parentLink = parentDropdown.querySelector('a');
+                        if (parentLink) parentLink.classList.remove('active');
+                    }
+                });
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                        const parentDropdown = link.closest('.dropdown-item');
+                        if (parentDropdown) parentDropdown.querySelector('a').classList.add('active');
+                    }
+                });
+                const navbar = document.querySelector('.navbar');
+                const heroSection = document.querySelector('.hero-top');
+                if (heroSection) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > heroSection.offsetHeight - 50) navbar.classList.add('sticky');
+                        else navbar.classList.remove('sticky');
+                    });
+                }
+                const hamburger = document.querySelector('.hamburger');
+                const menuLinks = document.querySelector('.nav-links');
+                if (hamburger) hamburger.addEventListener('click', () => menuLinks.classList.toggle('active'));
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Oracle Hospitality Solutions</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* =========================================
+           1. CSS Global & Resets
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           2. Navbar Overrides
+           ========================================= */
+        .navbar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all 0.4s ease;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .navbar .logo,
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar .nav-links>li>a.active {
+            color: #00bcd4 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-menu {
+            background-color: #ffffff !important;
+        }
+
+        .dropdown-menu li a {
+            color: #333333 !important;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #00bcd4 !important;
+            background-color: #f9f9f9;
+        }
+
+        .navbar.sticky {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .logo,
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        .navbar.sticky .nav-links>li>a.active {
+            color: #00bcd4 !important;
+        }
+
+        .navbar.sticky .logo img {
+            filter: none;
+        }
+
+        .navbar.sticky .hamburger span {
+            background-color: #333333 !important;
+        }
+
+        /* =========================================
+           3. Banner Styles
+           ========================================= */
+        .section-banner {
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        .hero-top {
+            margin-top: 0;
+        }
+
+        .section-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 20, 40, 0.3);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .banner-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+
+        /* Banner Images */
+        .banner-oracle {
+            background-image: url('image/18.png');
+        }
+
+        .banner-localized {
+            background-image: url('image/19.png');
+        }
+
+        .banner-value {
+            background-image: url('image/20.png');
+        }
+
+        .banner-greencloud {
+            background-image: url('image/21.png');
+        }
+
+        .banner-data-platform {
+            background-image: url('image/22.png');
+        }
+
+        .banner-ecommerce {
+            background-image: url('image/23.png');
+        }
+
+        .banner-ohotel {
+            background-image: url('image/24.png');
+        }
+
+        /* =========================================
+           4. Oracle Product Grid (3 Top, 2 Bottom)
+           ========================================= */
+        .product-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .product-grid-oracle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .product-card-strip {
+            background: #fff;
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .product-card-strip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card-strip .card-body {
+            padding: 40px 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card-strip h3 {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .card-btn-strip {
+            background-color: #3b506c;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            text-transform: capitalize;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+        }
+
+        .product-card-strip:hover .card-btn-strip {
+            background-color: #00bcd4;
+        }
+
+        /* =========================================
+           5. Standard Product Grid (Localized)
+           ========================================= */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 40px 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-body h3 {
+            font-size: 1.1rem;
+            color: #444;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .card-footer-btn {
+            background-color: #37474f;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+        }
+
+        .product-card:hover .card-footer-btn {
+            background-color: #00bcd4;
+        }
+
+        /* =========================================
+           6. Value Added Service (FIXED & UPDATED STYLE)
+           ========================================= */
+        .value-added-section .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .value-added-section .product-card {
+            width: 45%;
+            max-width: 480px;
+            min-width: 300px;
+            background: #fff;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            height: auto;
+        }
+
+        .value-added-section .card-body {
+            padding: 50px 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-added-section .card-body h3 {
+            font-size: 1.2rem;
+            color: #444;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* --- UPDATED BUTTON STYLE --- */
+        .value-added-section .card-footer-btn {
+            background-color: #37474f;
+            color: #fff;
+            border-top: none;
+            padding: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-align: center;
+            display: block;
+            position: relative;
+        }
+
+        .value-added-section .card-footer-btn::after {
+            content: ' >';
+            opacity: 1;
+            transition: opacity 0.3s, transform 0.3s;
+            display: inline-block;
+            margin-left: 5px;
+            transform: translateX(0);
+        }
+
+        .value-added-section .product-card:hover .card-footer-btn {
+            background-color: #00bcd4;
+            color: #fff;
+            border-top-color: transparent;
+        }
+
+        .value-added-section .product-card:hover .card-footer-btn::after {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        /* =========================================
+           7. GreenCloud Feature Section
+           ========================================= */
+        .greencloud-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .gc-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .gc-header h2 {
+            font-size: 2.2rem;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* --- เพิ่มเส้นใต้ให้ยาว (GreenCloud) --- */
+        .gc-header h2::after {
+            content: '';
+            display: block;
+            width: 300px;
+            /* เส้นยาว 300px */
+            height: 3px;
+            background-color: #ddd;
+            margin: 15px auto 0;
+        }
+
+        .gc-header p {
+            font-size: 1.1rem;
+            color: #777;
+            font-weight: 300;
+        }
+
+        .gc-feature-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gc-icon-box {
+            width: 120px;
+            height: 120px;
+            background-color: #37474f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            z-index: 2;
+            margin-right: 30px;
+            color: #fff;
+            font-size: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gc-content-box {
+            background-color: #f5f5f5;
+            padding: 30px 40px;
+            border-radius: 60px;
+            flex-grow: 1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .gc-content-box h4 {
+            color: #040200;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .gc-content-box p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* =========================================
+           8. DATA Platform Section
+           ========================================= */
+        .gateway-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .gateway-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gateway-header h2 {
+            font-size: 2rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        /* --- แก้ไขเส้นใต้ให้ยาว (Gateway) --- */
+        .gateway-header h2::after {
+            content: '';
+            display: block;
+            width: 300px;
+            /* แก้จาก 100px เป็น 300px */
+            height: 3px;
+            background-color: #ddd;
+            margin: 15px auto 0;
+        }
+
+        .gateway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gateway-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .gateway-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f2f5;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #37474f;
+            flex-shrink: 0;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .gateway-item:hover .gateway-icon {
+            background-color: #37474f;
+            color: #fff;
+        }
+
+        .gateway-content h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .gateway-content p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           9. Social Media Marketing
+           ========================================= */
+        .marketing-section {
+            padding: 80px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .marketing-header {
+            margin-bottom: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .marketing-header h2 {
+            font-size: 2.2rem;
+            color: #37474f;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* --- แก้ไขเส้นใต้ให้ยาว (Marketing) --- */
+        .marketing-header h2::after {
+            content: '';
+            display: block;
+            width: 300px;
+            /* แก้จาก 150px เป็น 300px */
+            height: 3px;
+            background-color: #ddd;
+            margin: 15px auto 0;
+        }
+
+        .marketing-header p {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .marketing-card {
+            background-color: #fff;
+            border: 2px solid #37474f;
+            border-radius: 25px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: transform 0.3s ease;
+            height: 100%;
+            min-height: 350px;
+        }
+
+        .marketing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: #071d20;
+        }
+
+        .marketing-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marketing-line {
+            width: 100%;
+            max-width: 200px;
+            height: 1px;
+            background-color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .marketing-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* =========================================
+           10. oHotel Information Platform
+           ========================================= */
+        .ohotel-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .ohotel-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ohotel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 180px;
+        }
+
+        .ohotel-icon-box {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            color: #37474f;
+            background-color: #fff;
+        }
+
+        .ohotel-icon-box i {
+            font-size: 3.5rem;
+        }
+
+        .ohotel-item:hover .ohotel-icon-box {
+            border-color: #37474f;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .ohotel-item h4 {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* =========================================
+           11. Responsive Design
+           ========================================= */
+        @media (max-width: 1200px) {
+            .marketing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+
+            .product-grid,
+            .product-grid-oracle {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-card-strip {
+                width: calc(50% - 15px);
+            }
+
+            .marketing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .product-grid,
+            .gateway-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card-strip {
+                width: 100%;
+            }
+
+            .banner-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .gc-feature-row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .gc-icon-box {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .gc-content-box {
+                padding: 30px 20px;
+                border-radius: 30px;
+                width: 100%;
+            }
+
+            .value-added-section .product-card {
+                width: 100%;
+                max-width: none;
+            }
+
+            .ohotel-item {
+                width: 45%;
+            }
+
+            .marketing-card {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .marketing-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="section-banner banner-oracle hero-top">
+        <div class="banner-content">
+            <h2>Oracle Product</h2>
+        </div>
+    </section>
+
+    <section class="product-section container">
+        <div class="product-grid-oracle">
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality OPERA Property</h3>
+                </div>
+                <a href="#" class="card-btn-strip">Learn more ></a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Hotel Mobile</h3>
+                </div>
+                <a href="#" class="card-btn-strip">Learn more ></a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Simphony</h3>
+                </div>
+                <a href="#" class="card-btn-strip">Learn more ></a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Sales & Catering</h3>
+                </div>
+                <a href="#" class="card-btn-strip">Learn more ></a>
+            </div>
+            <div class="product-card-strip">
+                <div class="card-body">
+                    <h3>Oracle Hospitality Materials Control</h3>
+                </div>
+                <a href="#" class="card-btn-strip">Learn more ></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-banner banner-localized">
+        <div class="banner-content">
+            <h2>Oracle Hospitality Localized Application</h2>
+        </div>
+    </section>
+
+    <section class="product-section container">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>ID Scan</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>E - Signature</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>One-Step Invoice</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>E - Invoice</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>QR-Code Menu</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>MIHotel</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>E-breakfast</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>I-Menu</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>POS Kiosk</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>Greencloud PMS</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>Smart Hospitality Operations</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>Platform</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>iCater Smart Catering</h3>
+                </div><a href="#" class="card-footer-btn">learn more ></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-banner banner-value">
+        <div class="banner-content">
+            <h2>Value Added Service Products</h2>
+        </div>
+    </section>
+
+    <section class="product-section container value-added-section">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>Storage Value Card System</h3>
+                </div>
+                <a href="#" class="card-footer-btn">LEARN MORE</a>
+            </div>
+            <div class="product-card">
+                <div class="card-body">
+                    <h3>E-commerce Platform</h3>
+                </div>
+                <a href="#" class="card-footer-btn">LEARN MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-banner banner-greencloud">
+        <div class="banner-content">
+            <h2>GreenCloud PMS</h2>
+        </div>
+    </section>
+
+    <section class="greencloud-section">
+        <div class="container">
+            <div class="gc-header">
+                <h2>GreenCloud iHotel PMS</h2>
+                <p>Next-Generation Cloud-Based Hotel Platform</p>
+            </div>
+            <div class="gc-feature-row">
+                <div class="gc-icon-box"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                <div class="gc-content-box">
+                    <h4>Flexible Deployment:</h4>
+                    <p><strong>Centralized or distributed architecture</strong> integrates PMS, group management and
+                        data platform across public, private or hybrid clouds.<br><strong>Support multilingual</strong>,
+                        international version with proven global deployment.</p>
+                </div>
+            </div>
+            <div class="gc-feature-row">
+                <div class="gc-icon-box"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="gc-content-box">
+                    <h4>Ecosystem Integration:</h4>
+                    <p><strong>APIs</strong> connect major <strong>OTAs, payment gateways, and social
+                            platforms</strong>, with native <strong>WeChat Pay and Alipay</strong> support.</p>
+                </div>
+            </div>
+            <div class="gc-feature-row">
+                <div class="gc-icon-box"><i class="fa-solid fa-puzzle-piece"></i></div>
+                <div class="gc-content-box">
+                    <h4>Multi - Segment Compatibility:</h4>
+                    <p><strong>Proven across hotels, resorts, boutique inns, limited service hotels, service
+                            apartments,</strong> culture complexes, trains and cruise ships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-banner banner-data-platform">
+        <div class="banner-content">
+            <h2>DATA Platform</h2>
+        </div>
+    </section>
+
+    <section class="gateway-section">
+        <div class="container">
+            <div class="gateway-header">
+                <h2>Hospitality Information & Technology Gateway</h2>
+            </div>
+            <div class="gateway-grid">
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                    <div class="gateway-content">
+                        <h4>Channel Integration Platform</h4>
+                        <p>OTAs: Ctrip, Fliggy, Meituan, Booking.com, Agoda, Expedia.</p>
+                    </div>
+                </div>
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                    <div class="gateway-content">
+                        <h4>Exchange Platform</h4>
+                        <p>Roaming Rights Exchange, Asia-Pacific Hotel Alliance Exchange.</p>
+                    </div>
+                </div>
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-regular fa-credit-card"></i></div>
+                    <div class="gateway-content">
+                        <h4>Payment Platform</h4>
+                        <p>Banks: ICBC, Bank of China... Payments: Alipay, WeChat Pay.</p>
+                    </div>
+                </div>
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-solid fa-server"></i></div>
+                    <div class="gateway-content">
+                        <h4>Cloud Distribution Center</h4>
+                        <p>Platform CRS: Streamlined booking, allocation, and management.</p>
+                    </div>
+                </div>
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div class="gateway-content">
+                        <h4>Big Data Analysis</h4>
+                        <p>Advanced hotel data analytics & value-added services infrastructure.</p>
+                    </div>
+                </div>
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="gateway-content">
+                        <h4>Cross-Industry Service Platform</h4>
+                        <p>Partners with banking, aviation, and telecommunications sectors.</p>
+                    </div>
+                </div>
+                <div class="gateway-item">
+                    <div class="gateway-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="gateway-content">
+                        <h4>Destination & Attractions Integration</h4>
+                        <p>Scenic Spot + Hotel + X multi-business integration solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-banner banner-ecommerce">
+        <div class="banner-content">
+            <h2>E-Commerce</h2>
+        </div>
+    </section>
+
+    <section class="marketing-section">
+        <div class="container">
+            <div class="marketing-header">
+                <h2>Social Media Marketing Services</h2>
+                <p>Integrated digital marketing solutions for the hospitality industry, enhancing core competitive
+                    advantages.</p>
+            </div>
+            <div class="marketing-grid">
+                <div class="marketing-card">
+                    <h4>Private-Domain Ops</h4>
+                    <div class="marketing-line"></div>
+                    <p>WeChat Official Account lifecycle management (content, growth, CRM).</p>
+                </div>
+                <div class="marketing-card">
+                    <h4>Alipay Marketing</h4>
+                    <div class="marketing-line"></div>
+                    <p>Campaigns for high-intent travelers.</p>
+                </div>
+                <div class="marketing-card">
+                    <h4>Multi-Platform Sync</h4>
+                    <div class="marketing-line"></div>
+                    <p>Unified brand messaging across WeChat / Alipay / Xiaohongshu / Douyin.</p>
+                </div>
+                <div class="marketing-card">
+                    <h4>Membership</h4>
+                    <div class="marketing-line"></div>
+                    <p>Data-driven loyalty programs for repeat stays.</p>
+                </div>
+                <div class="marketing-card">
+                    <h4>New-Media</h4>
+                    <div class="marketing-line"></div>
+                    <p>Social content & community for brand advocacy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-banner banner-ohotel">
+        <div class="banner-content">
+            <h2>oHotel - Information Platform</h2>
+        </div>
+    </section>
+
+    <section class="ohotel-section">
+        <div class="container">
+            <div class="ohotel-grid">
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-expand"></i></div>
+                    <h4>ID Scan</h4>
+                </div>
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-utensils"></i></div>
+                    <h4>e-Breakfast</h4>
+                </div>
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-list-ul"></i></div>
+                    <h4>I-Menu</h4>
+                </div>
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h4>MiHotel</h4>
+                </div>
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-qrcode"></i></div>
+                    <h4>QR Code Menu</h4>
+                </div>
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-file-invoice"></i></div>
+                    <h4>E-Invoice</h4>
+                </div>
+                <div class="ohotel-item">
+                    <div class="ohotel-icon-box"><i class="fa-solid fa-file-signature"></i></div>
+                    <h4>e-Signature</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const parentDropdown = link.closest('.dropdown-item');
+                    if (parentDropdown) {
+                        const parentLink = parentDropdown.querySelector('a');
+                        if (parentLink) parentLink.classList.remove('active');
+                    }
+                });
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                        const parentDropdown = link.closest('.dropdown-item');
+                        if (parentDropdown) parentDropdown.querySelector('a').classList.add('active');
+                    }
+                });
+                const navbar = document.querySelector('.navbar');
+                const heroSection = document.querySelector('.hero-top');
+                if (heroSection) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > heroSection.offsetHeight - 50) navbar.classList.add('sticky');
+                        else navbar.classList.remove('sticky');
+                    });
+                }
+                const hamburger = document.querySelector('.hamburger');
+                const menuLinks = document.querySelector('.nav-links');
+                if (hamburger) hamburger.addEventListener('click', () => menuLinks.classList.toggle('active'));
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>

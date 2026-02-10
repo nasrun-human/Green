@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Hospitality Hotel Mobile - Green Cloud Software</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* === Global & Hero Styles === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #navbar-placeholder {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar.sticky {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        .hero-banner {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* === Content Section === */
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .text-area {
+            flex: 1;
+        }
+
+        .text-area h2 {
+            font-size: 2.2rem;
+            color: #456b82;
+            margin-bottom: 25px;
+        }
+
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .image-area {
+            flex: 1;
+        }
+
+        .image-area img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        /* === Product Features (ใช้ชื่อ class เฉพาะ: .feature-circle) === */
+        .features-section {
+            padding: 100px 0;
+            background-color: #3b7484;
+            background-image: url('path-to-your-pattern.png');
+            background-blend-mode: multiply;
+            color: white;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* เปลี่ยนชื่อจาก .icon-circle เป็น .feature-circle เพื่อไม่ให้ทับกับฟุตเตอร์ */
+        .feature-circle {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-circle img {
+            width: 50px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            min-height: 50px;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* === Enhanced Experience === */
+        .enhanced-section {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .enhanced-section h2 {
+            font-size: 2.2rem;
+            color: #456b82;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        .enhanced-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .enhanced-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .enhanced-icon {
+            width: 180px;
+            height: 180px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .enhanced-icon img {
+            width: 60px;
+        }
+
+        .enhanced-item h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .enhanced-item .underline {
+            width: 40px;
+            height: 2px;
+            background-color: #456b82;
+            margin-bottom: 20px;
+        }
+
+        .enhanced-item p {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.6;
+            padding: 0 10px;
+            text-align: left;
+        }
+
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .enhanced-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Oracle Hospitality Hotel Mobile</h1>
+            <p>PRODUCT</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="text-area">
+                    <h2>Enabling Mobile Hotel Operations</h2>
+                    <p>Oracle Hospitality Hotel Mobile is a native app that extends key Oracle Hospitality hotel
+                        functions to mobile devices, empowering your staff to improve guest engagement by offering
+                        personalized services virtually anywhere across your property.</p>
+                    <a href="#" class="pdf-link">
+                        <i class="fas fa-file-pdf" style="color: #e74c3c; font-size: 1.5rem; margin-right: 10px;"></i>
+                        View The Data Sheet [PDF]
+                    </a>
+                </div>
+                <div class="image-area">
+                    <img src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=800&auto=format&fit=crop"
+                        alt="Mobile Hotel Booking">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2>Product Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-circle"><img src="icons/dashboard.png" alt="Dashboard"></div>
+                    <h3>The Dashboard</h3>
+                    <p>The Dashboard provides summary information of the hotel activities in real time with drill down
+                        functionality.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><img src="icons/checkin.png" alt="Check-in"></div>
+                    <h3>Check-In and check-out</h3>
+                    <p>Differentiate the guest experience by effectively managing the check-in & check-out process using
+                        mobile PMS.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><img src="icons/mobile-front.png" alt="Front Desk"></div>
+                    <h3>Mobile front desk operations</h3>
+                    <p>Increase your operational efficiency by untethering your front desk operation.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><img src="icons/housekeeping.png" alt="Housekeeping"></div>
+                    <h3>Streamline Housekeeping</h3>
+                    <p>Manage room status and track housekeeping activities.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-circle"><img src="icons/maintenance.png" alt="Maintenance"></div>
+                    <h3>Increase Maintenance Efficiency</h3>
+                    <p>Document and track maintenance tasks in real-time and upload a photo with a work order.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="enhanced-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enhanced Experience, Streamlined Operations</h2>
+            </div>
+            <div class="enhanced-grid">
+                <div class="enhanced-item">
+                    <div class="enhanced-icon"><img src="icons/mobile-check.png" alt="Mobile Check-in"></div>
+                    <h3>Enable mobile check-in and check-out</h3>
+                    <div class="underline"></div>
+                    <p>Enable mobile check-in and check-out: reservations search with intuitive filters, guest check-in,
+                        manage guest preferences, accompanying guests and sharers, room assignment, key encoding,
+                        posting charges and articles, check out with ability to email folio.</p>
+                </div>
+                <div class="enhanced-item">
+                    <div class="enhanced-icon"><img src="icons/filter-icon.png" alt="Streamline Housekeeping"></div>
+                    <h3>Streamline housekeeping</h3>
+                    <div class="underline"></div>
+                    <p>Get real-time updates when guests check out, prioritize rooms on queue, awareness of linen and
+                        towel change, manage room status, create maintenance tasks, enhance collaboration with the front
+                        desk.</p>
+                </div>
+                <div class="enhanced-item">
+                    <div class="enhanced-icon"><img src="icons/chat-icon.png" alt="Proactive Maintenance"></div>
+                    <h3>Proactive maintenance</h3>
+                    <div class="underline"></div>
+                    <p>Manage and create maintenance tasks, include picture when creating maintenance task, update and
+                        resolve maintenance tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                const navbar = document.querySelector('.navbar');
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentPage) link.classList.add('active');
+                });
+                window.addEventListener('scroll', () => {
+                    if (navbar) {
+                        if (window.scrollY > 50) navbar.classList.add('sticky');
+                        else navbar.classList.remove('sticky');
+                    }
+                });
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+    </script>
+</body>
+
+</html>

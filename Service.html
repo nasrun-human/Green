@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service</title>
+    <link rel="icon" type="image/png" href="image/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* =========================================
+           CSS Global & Resets
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           Navbar Overrides
+           ========================================= */
+        .navbar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all 0.4s ease;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .navbar .logo,
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar .nav-links>li>a.active {
+            color: #00bcd4 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-menu {
+            background-color: #ffffff !important;
+        }
+
+        .dropdown-menu li a {
+            color: #333333 !important;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #00bcd4 !important;
+            background-color: #f9f9f9;
+        }
+
+        .navbar .logo img {
+            filter: none;
+            transition: 0.3s;
+        }
+
+        .hamburger span {
+            background-color: #ffffff !important;
+        }
+
+        .navbar.sticky {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .logo,
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        .navbar.sticky .nav-links>li>a.active {
+            color: #00bcd4 !important;
+        }
+
+        .navbar.sticky .logo img {
+            filter: none;
+        }
+
+        .navbar.sticky .hamburger span {
+            background-color: #333333 !important;
+        }
+
+        /* =========================================
+           Banner Styles
+           ========================================= */
+        .section-banner {
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-top {
+            margin-top: 0;
+        }
+
+        .section-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 20, 40, 0.4);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .banner-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Banner Images */
+        .banner-hospitality {
+            background-image: url('image/31.png');
+        }
+
+        /* =========================================
+           Implementation Plan Styles (EDITED)
+           ========================================= */
+       /* =========================================
+           Implementation Plan Styles (EDITED)
+           ========================================= */
+        .impl-section {
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+
+        .impl-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .impl-header h2 {
+            font-size: 1.8rem;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .impl-header::after {
+            content: '';
+            display: block;
+            width: 400px;
+            height: 2px;
+            background-color: #555;
+            margin: 0 auto;
+        }
+
+        /* --- [จุดที่แก้ไข] ปรับความกว้างกล่องรวม --- */
+        .impl-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            
+            /* แก้จาก 800px เป็น 620px เพื่อให้กล่องไม่ยาวเกินไป */
+            max-width: 620px; 
+            
+            margin: 0 auto;
+        }
+        /* --------------------------------------- */
+
+        .impl-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #37474f;
+            border-radius: 50px;
+            padding: 20px 30px; /* ลด padding ด้านข้างนิดหน่อยให้ดูกระชับ */
+            transition: all 0.3s ease;
+            cursor: default;
+            overflow: visible;
+            
+            /* เอา margin-left ออก เพื่อให้จัดกึ่งกลางหน้าจอได้เป๊ะๆ 
+               (เพราะเราใช้ max-width ที่แม่นยำแล้ว ไม่ต้องดันซ้ายขวา) */
+            margin-left: 0; 
+            
+            min-height: 80px;
+        }
+
+        .impl-card:hover {
+            border-color: #0c0e0e;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .check-icon {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #62c448;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .impl-text {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Responsive สำหรับมือถือ */
+        @media (max-width: 768px) {
+            .impl-header::after {
+                width: 80%;
+            }
+
+            .impl-list {
+                max-width: 100%; /* ในมือถือให้เต็มจอ */
+                padding: 0 20px; /* เว้นขอบ */
+            }
+
+            .impl-card {
+                padding: 15px 20px 15px 40px; /* เว้นซ้ายเยอะหน่อยหนีไอคอน */
+                border-radius: 30px;
+                margin-left: 15px; /* ดันขวาในมือถือเพื่อให้ไอคอนไม่ตกจอ */
+            }
+
+            .impl-text {
+                font-size: 0.95rem;
+            }
+
+            .check-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+                left: -22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="section-banner hero-top banner-hospitality">
+        <div class="banner-content">
+            <h2>Oracle Hospitality &amp; Food Service</h2>
+        </div>
+    </section>
+
+    <section class="impl-section container">
+        <div class="impl-header">
+            <h2>Provide a Complete Implementation Plan</h2>
+        </div>
+
+        <div class="impl-list">
+            <div class="impl-card">
+                <div class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="impl-text">
+                    Provide complete Oracle product solutions
+                </div>
+            </div>
+
+            <div class="impl-card">
+                <div class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="impl-text">
+                    Technological innovation, integrated <br> solutions for catering and retail
+                </div>
+            </div>
+
+            <div class="impl-card">
+                <div class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="impl-text">
+                    Professional team, Oracle certified
+                </div>
+            </div>
+
+            <div class="impl-card">
+                <div class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="impl-text">
+                    Success stories, gaining industry recognition
+                </div>
+            </div>
+
+            <div class="impl-card">
+                <div class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="impl-text">
+                    7×24 hotline service
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                const navbar = document.querySelector('.navbar');
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentPage) link.classList.add('active');
+                });
+                window.addEventListener('scroll', () => {
+                    if (navbar) {
+                        if (window.scrollY > 50) navbar.classList.add('sticky');
+                        else navbar.classList.remove('sticky');
+                    }
+                });
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+    </script>
+</body>
+
+</html>

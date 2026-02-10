@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Cloud - Home</title>
+    <link rel="icon" type="image/png" href="image/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero-section" id="heroVideoContainer">
+        <video class="bg-video" id="heroVideo" muted loop playsinline>
+            <source src="image/banner.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </header>
+
+    <section class="business-intro">
+        <div class="container">
+            <div class="section-header">
+                <h2>Business Introduction</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <p>Green Cloud Software (Thailand) Co., Ltd. is a leading provider of Oracle-based IT solutions for
+                        the hospitality industry, specifically catering to hotels and F&amp;B businesses. As a certified
+                        Oracle partner, we can support customers across the Asia-Pacific region.</p>
+                </div>
+
+                <div class="video-content">
+                    <div class="video-thumbnail" id="businessVideoContainer">
+                        <video id="businessVideo" muted loop playsinline>
+                            <source src="image/banner1.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+
+                        <div class="time-badge" id="videoTimer">00:00</div>
+
+                        <div class="custom-controls">
+                            <div class="progress-bar-fill" id="progressBarFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="core-product">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core Product</h2>
+            </div>
+
+            <div class="core-diagram-container">
+                <img src="image/12.jpg" alt="Core Product Ecosystem" class="core-diagram-img">
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/2.png" alt="GreenCloud PMS">
+                    </div>
+                    <h3>GreenCloud PMS</h3>
+                    <ul>
+                        <li>Self-developed</li>
+                        <li>Industry Leader</li>
+                        <li>Intelligent &amp; Creative</li>
+                        <li>Mobile Apps</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/1.png" alt="Oracle Hospitality">
+                    </div>
+                    <h3>Oracle Hospitality</h3>
+                    <ul>
+                        <li>Oracle authorized partner</li>
+                        <li>Perfect professional team</li>
+                        <li>Total Solution</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/3.png" alt="Data Platform">
+                    </div>
+                    <h3>Data Platform</h3>
+                    <ul>
+                        <li>Integrated resources</li>
+                        <li>Interconnection</li>
+                        <li>Seamless interface</li>
+                        <li>Industry's information highway</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/4.png" alt="E-Commerce">
+                    </div>
+                    <h3>E-Commerce</h3>
+                    <ul>
+                        <li>Wechat based</li>
+                        <li>Manage &amp; Third Partner Service</li>
+                        <li>Promote Hotel Sales with technical skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="customer-service">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Service</h2>
+            </div>
+
+            <div class="service-content-wrapper">
+                <div class="service-image">
+                    <img src="image/5.png" alt="Customer Service">
+                </div>
+
+                <div class="service-text-list">
+                    <ul>
+                        <li>Complete product solution</li>
+                        <li>Comprehensive internal customer service tracking system</li>
+                        <li>Thoughtful service, worry-free after-sales support</li>
+                        <li>7×24 hotline service</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="customer-case">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Case</h2>
+            </div>
+
+            <div class="case-grid">
+                <div class="case-item"><img src="image/6.png" alt="Berkeley"></div>
+                <div class="case-item"><img src="image/7.png" alt="Prince Palace"></div>
+                <div class="case-item"><img src="image/8.png" alt="Hilton"></div>
+                <div class="case-item"><img src="image/9.png" alt="DoubleTree"></div>
+                <div class="case-item"><img src="image/10.png" alt="Landmark"></div>
+
+                <div class="case-item"><img src="image/11.png" alt="SAii"></div>
+                <div class="case-item"><img src="image/12.png" alt="Holiday Inn"></div>
+                <div class="case-item"><img src="image/13.png" alt="Woodlands"></div>
+                <div class="case-item"><img src="image/14.png" alt="Andaman Embrace"></div>
+                <div class="case-item"><img src="image/15.png" alt="S&amp;P"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                        const parentDropdown = link.closest('.dropdown-item');
+                        if (parentDropdown) parentDropdown.querySelector('a').classList.add('active');
+                    }
+                });
+
+                const navbar = document.querySelector('.navbar');
+                if (navbar) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) navbar.classList.add('sticky');
+                        else navbar.classList.remove('sticky');
+                    });
+                }
+                const hamburger = document.querySelector('.hamburger');
+                const menuLinksContainer = document.querySelector('.nav-links');
+                if (hamburger) {
+                    hamburger.addEventListener('click', () => menuLinksContainer.classList.toggle('active'));
+                }
+            });
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Video Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('businessVideo');
+            const heroVideo = document.getElementById('heroVideo');
+            const timer = document.getElementById('videoTimer');
+            const barFill = document.getElementById('progressBarFill');
+
+            if (heroVideo) {
+                heroVideo.play().catch(e => console.log("Hero video autoplay prevented:", e));
+            }
+
+            if (video) {
+                video.play().catch(e => console.log("Business video autoplay prevented:", e));
+
+                function formatTime(seconds) {
+                    const m = Math.floor(seconds / 60);
+                    const s = Math.floor(seconds % 60);
+                    return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+                }
+
+                video.addEventListener('timeupdate', () => {
+                    timer.innerText = formatTime(video.currentTime);
+                    if (video.duration) {
+                        const percent = (video.currentTime / video.duration) * 100;
+                        barFill.style.width = percent + '%';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>  

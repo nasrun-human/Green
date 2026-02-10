@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Green Cloud Software</title>
+   <link rel="icon" type="image/png" href="image/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* =========================================
+           CSS Global
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           Navbar Overrides
+           ========================================= */
+        .navbar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all 0.4s ease;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .navbar .logo,
+        .navbar .nav-links>li>a {
+            color: #ffffff !important;
+        }
+
+        .navbar .nav-links>li>a.active {
+            color: #00bcd4 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-menu {
+            background-color: #ffffff !important;
+        }
+
+        .dropdown-menu li a {
+            color: #333333 !important;
+        }
+
+        .dropdown-menu li a:hover {
+            color: #00bcd4 !important;
+            background-color: #f9f9f9;
+        }
+
+        .navbar .logo img {
+            filter: none;
+            transition: 0.3s;
+        }
+
+        .hamburger span {
+            background-color: #ffffff !important;
+        }
+
+        /* Sticky State */
+        .navbar.sticky {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .navbar.sticky .logo,
+        .navbar.sticky .nav-links>li>a {
+            color: #333333 !important;
+        }
+
+        .navbar.sticky .nav-links>li>a.active {
+            color: #00bcd4 !important;
+        }
+
+        .navbar.sticky .hamburger span {
+            background-color: #333333 !important;
+        }
+
+        /* =========================================
+           Full Image Section
+           ========================================= */
+        .full-image-banner {
+            width: 100%;
+            /* ปรับความสูงตามต้องการ หรือใช้ auto เพื่อให้ภาพขยายเต็ม */
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            /* --- ใส่ชื่อไฟล์รูปภาพของคุณที่นี่ --- */
+            /* เช่น url('images/contact-banner.jpg'); */
+            background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80');
+
+            position: relative;
+            flex-grow: 1;
+            /* ดัน Footer ลงไปด้านล่าง */
+            margin-top: 0;
+            /* ติดขอบบนสุด (ใต้ navbar) */
+        }
+
+        /* Responsive: ปรับความสูงรูปในมือถือ */
+        @media (max-width: 768px) {
+            .full-image-banner {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="full-image-banner">
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+
+                // --- Active Menu Logic ---
+                let currentPage = window.location.pathname.split("/").pop();
+                if (currentPage === "") currentPage = "index.html";
+
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                        const parentDropdown = link.closest('.dropdown-item');
+                        if (parentDropdown) {
+                            parentDropdown.querySelector('a').classList.add('active');
+                        }
+                    }
+                });
+
+                // Sticky Navbar
+                const navbar = document.querySelector('.navbar');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) navbar.classList.add('sticky');
+                    else navbar.classList.remove('sticky');
+                });
+
+                // Mobile Menu
+                const hamburger = document.querySelector('.hamburger');
+                const navLinksContainer = document.querySelector('.nav-links');
+                if (hamburger) {
+                    hamburger.addEventListener('click', () => navLinksContainer.classList.toggle('active'));
+                }
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+</body>
+
+</html>
