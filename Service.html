@@ -157,7 +157,7 @@
         /* =========================================
            Implementation Plan Styles (EDITED)
            ========================================= */
-       /* =========================================
+        /* =========================================
            Implementation Plan Styles (EDITED)
            ========================================= */
         .impl-section {
@@ -191,12 +191,13 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            
+
             /* แก้จาก 800px เป็น 620px เพื่อให้กล่องไม่ยาวเกินไป */
-            max-width: 620px; 
-            
+            max-width: 620px;
+
             margin: 0 auto;
         }
+
         /* --------------------------------------- */
 
         .impl-card {
@@ -207,15 +208,16 @@
             background: #fff;
             border: 2px solid #37474f;
             border-radius: 50px;
-            padding: 20px 30px; /* ลด padding ด้านข้างนิดหน่อยให้ดูกระชับ */
+            padding: 20px 30px;
+            /* ลด padding ด้านข้างนิดหน่อยให้ดูกระชับ */
             transition: all 0.3s ease;
             cursor: default;
             overflow: visible;
-            
+
             /* เอา margin-left ออก เพื่อให้จัดกึ่งกลางหน้าจอได้เป๊ะๆ 
                (เพราะเราใช้ max-width ที่แม่นยำแล้ว ไม่ต้องดันซ้ายขวา) */
-            margin-left: 0; 
-            
+            margin-left: 0;
+
             min-height: 80px;
         }
 
@@ -259,14 +261,18 @@
             }
 
             .impl-list {
-                max-width: 100%; /* ในมือถือให้เต็มจอ */
-                padding: 0 20px; /* เว้นขอบ */
+                max-width: 100%;
+                /* ในมือถือให้เต็มจอ */
+                padding: 0 20px;
+                /* เว้นขอบ */
             }
 
             .impl-card {
-                padding: 15px 20px 15px 40px; /* เว้นซ้ายเยอะหน่อยหนีไอคอน */
+                padding: 15px 20px 15px 40px;
+                /* เว้นซ้ายเยอะหน่อยหนีไอคอน */
                 border-radius: 30px;
-                margin-left: 15px; /* ดันขวาในมือถือเพื่อให้ไอคอนไม่ตกจอ */
+                margin-left: 15px;
+                /* ดันขวาในมือถือเพื่อให้ไอคอนไม่ตกจอ */
             }
 
             .impl-text {
@@ -349,28 +355,83 @@
     <div id="footer-placeholder"></div>
 
     <script>
+        // 1. โหลด Navbar
         fetch('navbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
+
                 const navbar = document.querySelector('.navbar');
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                const navItems = document.querySelectorAll('.nav-links a');
+
+                // ตรวจสอบหน้าปัจจุบันและใส่คลาส active
                 let currentPage = window.location.pathname.split("/").pop();
                 if (currentPage === "") currentPage = "index.html";
-                document.querySelectorAll('.nav-links a').forEach(link => {
+
+                navItems.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === currentPage) link.classList.add('active');
-                });
-                window.addEventListener('scroll', () => {
-                    if (navbar) {
-                        if (window.scrollY > 50) navbar.classList.add('sticky');
-                        else navbar.classList.remove('sticky');
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
                     }
                 });
-            });
 
+                // ==========================================
+                // 🛑 แก้บั๊กตรงนี้: ระบบปุ่มกด Hamburger มือถือ
+                // ==========================================
+                if (hamburger && navLinks) {
+                    hamburger.addEventListener('click', () => {
+                        // สั่งกางเมนู/หุบเมนู
+                        navLinks.classList.toggle('active');
+
+                        // ถ้าคุณใช้ FontAwesome (ไอคอน) ให้สลับไอคอนตรงนี้
+                        const icon = hamburger.querySelector('i');
+                        if (icon) {
+                            if (navLinks.classList.contains('active')) {
+                                icon.classList.remove('fa-bars');
+                                icon.classList.add('fa-xmark'); // เปลี่ยนเป็นกากบาท
+                            } else {
+                                icon.classList.remove('fa-xmark');
+                                icon.classList.add('fa-bars'); // กลับเป็น 3 ขีด
+                            }
+                        }
+                    });
+
+                    // ปิดเมนูอัตโนมัติเมื่อกดเลือกลิงก์
+                    navItems.forEach(item => {
+                        item.addEventListener('click', () => {
+                            navLinks.classList.remove('active');
+                            const icon = hamburger.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('fa-xmark');
+                                icon.classList.add('fa-bars');
+                            }
+                        });
+                    });
+                }
+                // ==========================================
+
+                // ระบบ Sticky Navbar เวลาเลื่อนจอ
+                window.addEventListener('scroll', () => {
+                    if (navbar) {
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('sticky');
+                        } else {
+                            navbar.classList.remove('sticky');
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+
+        // 2. โหลด Footer
         fetch('footer.html')
             .then(response => response.text())
-            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
     </script>
 </body>
 

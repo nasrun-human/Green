@@ -154,7 +154,6 @@ body {
     text-align: center;
 }
 
-/* สไตล์สำหรับรูป Diagram ใน Core Product */
 .core-diagram-container {
     margin-bottom: 50px;
     text-align: center;
@@ -290,37 +289,6 @@ body {
     font-weight: 300;
 }
 
-@media (max-width: 768px) {
-    .service-content-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .service-image {
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-
-    .service-text-list {
-        padding-left: 0;
-        text-align: center;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .core-diagram-img {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* --- Customer Case --- */
 .customer-case {
     background-color: #ffffff;
@@ -359,6 +327,10 @@ body {
     transform: scale(1.1);
 }
 
+/* =========================================
+   === RESPONSIVE DESIGN (MOBILE & TABLET) ===
+   ========================================= */
+
 @media (max-width: 992px) {
     .case-item {
         flex: 0 0 calc(33.33% - 15px);
@@ -366,9 +338,92 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+
+    /* 1. Hero Section ปรับความสูงลงให้เหมาะกับมือถือ */
+    .hero-section {
+        height: 400px;
+        width: 100%;
+    }
+
+    /* 2. Business Introduction */
+    .business-intro {
+        padding: 40px 0;
+    }
+
+    .business-intro .content-wrapper {
+        flex-direction: column;
+        /* เปลี่ยนจากแนวนอนเป็นแนวตั้ง */
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* === เพิ่ม order: 2 เพื่อดันกรอบข้อความให้ลงมาอยู่ข้างล่าง === */
+    .business-intro .text-content {
+        order: 2;
+    }
+
+    .business-intro .text-content p {
+        text-indent: 0;
+        /* เอาย่อหน้าออกในมือถือ */
+        text-align: center;
+        /* เปลี่ยนเป็นกึ่งกลางเพื่อความสวยงาม */
+        font-size: 0.95rem;
+    }
+
+    .business-intro .video-content {
+        width: 100%;
+        /* === เพิ่ม order: 1 เพื่อดันกรอบวิดีโอให้ขึ้นไปอยู่ด้านบนสุด === */
+        order: 1;
+    }
+
+    /* 3. Core Product & Diagram */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .core-diagram-img {
+        max-width: 100%;
+    }
+
+    /* 4. Customer Service */
+    .service-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-image {
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .service-text-list {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .service-text-list li {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 576px) {
+
+    /* ปรับ Case Logo ให้เล็กลงอีกนิดในมือถือจอเล็ก */
     .case-item {
         flex: 0 0 calc(50% - 10px);
         height: 100px;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Product Grid ให้แสดงแถวละ 1 รูป */
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 }
